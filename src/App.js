@@ -13,6 +13,8 @@ import Signup from './Components/Signup';
 import Home from './Components/Home';
 import PageNotFound from './Components/PageNotFound';
 import { UserContext } from './Context/UserContext';
+import Footer from './Layout/Footer';
+import Header from './Layout/Header';
 
 
 
@@ -25,12 +27,14 @@ function App() {
   return (
     <Router>
       <UserContext.Provider value= {{user, setUser}}>
+      <Header/>
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/signin' component={Signin} />
           <Route exact path='/signup' component={Signup} />
           <Route exact path='*' component={PageNotFound} />
         </Switch>
+        <Footer/>
       </UserContext.Provider>
     </Router>
   );
