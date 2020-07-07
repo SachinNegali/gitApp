@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react'
 import {Container, Form, Button, FormGroup, Label, Col, Row, Input, Card, CardBody, CardFooter, CardHeader} from 'reactstrap'
+import { toast } from 'react-toastify'
+
 
 import firebase from 'firebase/app'
 import { UserContext } from '../Context/UserContext'
 import { Redirect } from 'react-router-dom'
-import { toast } from 'react-toastify'
 
 
 const Signup = () => {
@@ -21,10 +22,10 @@ const Signup = () => {
             context.setUser({email: res.user.email, uid: res.user.uid})
         })
         .catch(error => {
-            console.log(error)
+            console.log(error);
             toast(error.message, {
                 type: "error"
-            })
+            });
         }
         )
     }
